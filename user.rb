@@ -226,7 +226,7 @@ class User < ActiveRecord::Base
     mode = self.mode
 
     begin
-      user_or_taskid = if mode == "database" || username == "admin"
+      user_or_taskid = if mode == "database" || username == "admin" || username == "demo"
         self.authenticate_database(username, password)
       elsif mode == "ldap" || mode == "ldaps"
         self.authenticate_ldap(username, password)
